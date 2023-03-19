@@ -22,13 +22,8 @@ const NFTCard: FC<NFTCardProps> = ({ tokenId }) => {
   return (
     <>
       {nft && (
-        <div className={styles.nftBox}>
-          {nft.metadata && (
-            <ThirdwebNftMedia
-              metadata={nft.metadata}
-              className={styles.nftMedia}
-            />
-          )}
+        <div>
+          {nft.metadata && <ThirdwebNftMedia metadata={nft.metadata} />}
           <h3>{nft.metadata.name}</h3>
           <Web3Button
             action={(contract) => contract?.call("withdraw", [nft.metadata.id])}
